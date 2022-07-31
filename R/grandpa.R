@@ -42,7 +42,7 @@ grandpa<-function(G,nt=vcount(G),mt=ecount(G),preventSelf=T,preventDups=T,augmen
   }
   
   if(augmentCommunity){
-    G<-addCommunityAugment(G,resolution)
+    G<-addCommunityAugment(G)
   }
   
   #check if a variable named "label" exists here
