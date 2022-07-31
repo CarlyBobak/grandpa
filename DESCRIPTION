@@ -1,0 +1,17 @@
+Package: granpda
+Type: Package
+Title: GeneRAtive Networks using Property and Degree Augmentation
+Version: 0.1.0
+Author: Carly Bobak, Yifan Zhao
+Authors@R: c(person("Carly","Bobak",email="Carly.Anne.Bobak@dartmouth.edu",role = c("aut", "cre")),person("Yifan","Zhao",email="Yifan.Zhao.GR@dartmouth.edu",role="aut"))
+Description: This packages generates graphs from existing graphs using both observed attribute structure and topological augmentation
+License: MIT
+Depends: R (>= 3.5.0)
+Encoding: UTF-8
+LazyData: true
+Imports:
+  igraph, 
+  tidyr,
+  dplyr (>= 1.0.0),
+  ggplot2
+RoxygenNote: 7.1.2
