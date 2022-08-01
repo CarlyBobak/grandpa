@@ -4,6 +4,11 @@ require(dplyr)
 require(igraph)
 require(ggplot2)
 
+library(tidyr)
+library(dplyr) 
+library(igraph)
+library(ggplot2)
+
 #' Conducts a GRANPDA procedure
 #' 
 #' Uses the GRANPDA framework to generate a network with matching attribute probabilities
