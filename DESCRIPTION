@@ -1,4 +1,4 @@
-Package: granpda
+Package: grandpa
 Type: Package
 Title: GeneRAtive Networks using Property and Degree Augmentation
 Version: 0.1.0
