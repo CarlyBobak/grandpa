@@ -1,13 +1,8 @@
-#functions for PGM simulation
-require(tidyr)
-require(dplyr) 
-require(igraph)
-require(ggplot2)
-
-library(tidyr)
-library(dplyr) 
-library(igraph)
-library(ggplot2)
+#' @import tidyr
+#' @import dplyr 
+#' @import igraph
+#' @import ggplot2
+NULL
 
 #' Conducts a GRANPDA procedure
 #' 
@@ -346,7 +341,7 @@ simGraph<-function(Gt,sampled_e,C2V,seed,preventSelf,preventDups){
 addAugment<-function(G,nbins,degType){
   #currently defaulting to all, can append later
   deg<-degree(G,mode=degType)
-  V(G)$augLabel<-cut_interval(deg,nbins)
+  V(G)$augLabel<-ggplot2::cut_interval(deg,nbins)
   return(G)
 }
 
