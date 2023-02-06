@@ -4,12 +4,12 @@
 \alias{degree_error}
 \title{Calculates the error between two degree distributions of graphs}
 \usage{
-degree_error(Gs, Gt)
+degree_error(G, Gt)
 }
 \arguments{
-\item{Gt}{the generated graph}
-
 \item{G}{the original graph}
+
+\item{Gt}{the generated graph}
 }
 \value{
 numerical; the NRMSE between the degree distributions
