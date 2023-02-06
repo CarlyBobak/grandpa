@@ -7,9 +7,9 @@
 degree_error(Gs, Gt)
 }
 \arguments{
-\item{Gs}{the original graph}
-
 \item{Gt}{the generated graph}
+
+\item{G}{the original graph}
 }
 \value{
 numerical; the NRMSE between the degree distributions

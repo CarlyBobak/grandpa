@@ -2,7 +2,7 @@
 % Please edit documentation in R/grandpa.R
 \name{grandpa}
 \alias{grandpa}
-\title{Conducts a GRANPDA procedure}
+\title{Conducts a GRANDPA procedure}
 \usage{
 grandpa(
   G,
@@ -42,7 +42,7 @@ grandpa(
 an igraph object with attribute and augmentation labels
 }
 \description{
-Uses the GRANPDA framework to generate a network with matching attribute probabilities
+Uses the GRANDPA framework to generate a network with matching attribute probabilities
 }
 \examples{
 
