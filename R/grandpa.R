@@ -432,7 +432,7 @@ preventDuplicateConnections<-function(v1,v2,lab1,lab2,C2V,Gt){
 #' 
 #' @return numerical; the NRMSE between the degree distributions
 #' @export
-degree_error<-function(Gs,Gt){
+degree_error<-function(G,Gt){
   
   sourceCCDF<-degree_distribution(G,cumulative=T)
   targetCCDF<-degree_distribution(Gt,cumulative=T)
