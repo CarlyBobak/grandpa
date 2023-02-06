@@ -4,9 +4,9 @@
 #' @import ggplot2
 NULL
 
-#' Conducts a GRANPDA procedure
+#' Conducts a GRANDPA procedure
 #' 
-#' Uses the GRANPDA framework to generate a network with matching attribute probabilities
+#' Uses the GRANDPA framework to generate a network with matching attribute probabilities
 #' @param G an igraph object containing the original graph. Attributes which will be in the modelling procedure must contain the word 'Label'
 #' @param nt the number of desired nodes in the generated graph
 #' @param mt the number of desired edges in the generated graph
@@ -46,6 +46,9 @@ grandpa<-function(G,nt=vcount(G),mt=ecount(G),preventSelf=T,preventDups=T,augmen
   }
   
   #check if a variable named "label" exists here
+  if(any(grepl("label",vertex_attr_names(CMSSub),ignore.case=T))==F){
+    stop("At least one vertex attribute must contain the word label")
+  }
   
   #calculate observed probabilities of attributes for vertices and edges
   obsProb<-calcObsProbs(G)
@@ -287,6 +290,7 @@ sampleEdges<-function(observedEdgeLabels,mt,seed){
 #' @export
 simGraph<-function(Gt,sampled_e,C2V,seed,preventSelf,preventDups){
   set.seed(seed)
+  first=T
   
   for(i in 1:nrow(sampled_e)){
     lab1<-as.character(sampled_e[i,1])
@@ -309,7 +313,10 @@ simGraph<-function(Gt,sampled_e,C2V,seed,preventSelf,preventDups){
     
     #avoid drawing the same edge twice
     if(length(C2V$map[[lab1]])==1 & length(C2V$map[[lab2]]==1) & are.connected(Gt, v1, v2) & preventDups){
-      warning("Could not prevent duplicate connections. Consider simplifying to unique edges")
+      if(first==T){
+        warning("Could not prevent duplicate connections. Consider simplifying to unique edges")
+        first=F
+      }
       next
     }
     
@@ -420,14 +427,14 @@ preventDuplicateConnections<-function(v1,v2,lab1,lab2,C2V,Gt){
 #' Calculates the error between two degree distributions of graphs
 #' 
 #' This function takes an original graph and a simulated graph and calculates the normalized root mean square error between their degree distributions.
-#' @param Gs the original graph
+#' @param G the original graph
 #' @param Gt the generated graph
 #' 
 #' @return numerical; the NRMSE between the degree distributions
 #' @export
 degree_error<-function(Gs,Gt){
   
-  sourceCCDF<-degree_distribution(Gs,cumulative=T)
+  sourceCCDF<-degree_distribution(G,cumulative=T)
   targetCCDF<-degree_distribution(Gt,cumulative=T)
   
   source_f<-approxfun(sourceCCDF)
