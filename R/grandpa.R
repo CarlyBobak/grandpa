@@ -46,7 +46,7 @@ grandpa<-function(G,nt=vcount(G),mt=ecount(G),preventSelf=T,preventDups=T,augmen
   }
   
   #check if a variable named "label" exists here
-  if(any(grepl("label",vertex_attr_names(CMSSub),ignore.case=T))==F){
+  if(any(grepl("label",vertex_attr_names(G),ignore.case=T))==F){
     stop("At least one vertex attribute must contain the word label")
   }
   
