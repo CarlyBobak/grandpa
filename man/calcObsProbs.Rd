@@ -7,23 +7,14 @@
 calcObsProbs(G)
 }
 \arguments{
-\item{G}{An igraph object, containing labels indicated with the word 'Label' that should be used to calculate edge and vertex probabilities}
+\item{G}{An igraph object containing vertex attributes whose names
+include the substring 'Label' (case-insensitive).}
 }
 \value{
-a list of tidy tables containing the vertex probabilities and edge probabilities respectively
+a list of tidy tables containing the vertex probabilities and
+  edge probabilities respectively.
 }
 \description{
-This function is typically called by the grandpa function rather than directly.
-}
-\examples{
-
-G = make_graph("Zachary")
-V(G)$degree<-degree(G,mode="all")
-
-V(G)$Label1<-rep("A",vcount(G))
-V(G)$Label1[V(G)$degree>median(V(G)$degree)]<-"B"
-
-obsProbTabs<-calcObsProbs(G)
-vertexProbs<-obsProbTabs[[1]]
-edgeProbs<-obsProbTabs[[2]]
+This function is typically called by the grandpa function rather than
+directly.
 }

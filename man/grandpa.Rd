@@ -8,21 +8,23 @@ grandpa(
   G,
   nt = vcount(G),
   mt = ecount(G),
-  preventSelf = T,
-  preventDups = T,
-  augment = F,
-  augmentCommunity = F,
+  preventSelf = TRUE,
+  preventDups = TRUE,
+  augment = FALSE,
+  augmentCommunity = FALSE,
   nbins = 3,
   degType = "all",
   seed = 0
 )
 }
 \arguments{
-\item{G}{an igraph object containing the original graph. Attributes which will be in the modelling procedure must contain the word 'Label'}
+\item{G}{an igraph object containing the original graph. Attributes that
+will be used in the modeling procedure must contain the word 'Label'
+(case-insensitive) in their attribute name.}
 
-\item{nt}{the number of desired nodes in the generated graph}
+\item{nt}{the number of desired nodes in the generated graph.}
 
-\item{mt}{the number of desired edges in the generated graph}
+\item{mt}{the number of desired edges in the generated graph.}
 
 \item{preventSelf}{logical; should self connections be prevented?}
 
@@ -30,28 +32,19 @@ grandpa(
 
 \item{augment}{logical; should degree augmentation occur?}
 
-\item{augmentCommunity}{logical; should communited be augmented?}
+\item{augmentCommunity}{logical; should communities be augmented?}
 
-\item{nbins}{the number of degree bins used in the degree augmentation}
+\item{nbins}{the number of degree bins used in the degree augmentation.}
 
-\item{degType}{string; the type of degree to be used in the degree augmentation. See ?degree for details}
+\item{degType}{string; the type of degree to be used in the degree
+augmentation. See ?degree for details.}
 
-\item{seed}{a random seed set for reproducibility}
+\item{seed}{a random seed set for reproducibility.}
 }
 \value{
-an igraph object with attribute and augmentation labels
+an igraph object with attribute and augmentation labels.
 }
 \description{
-Uses the GRANDPA framework to generate a network with matching attribute probabilities
-}
-\examples{
-
-G = make_graph("Zachary")
-V(G)$degree<-degree(G,mode="all")
-
-V(G)$Label1<-rep("A",vcount(G))
-V(G)$Label1[V(G)$degree>median(V(G)$degree)]<-"B"
-
-GSim<-grandpa(G)
-
+Uses the GRANDPA framework to generate a network with matching attribute
+probabilities.
 }

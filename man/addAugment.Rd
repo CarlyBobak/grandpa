@@ -7,20 +7,15 @@
 addAugment(G, nbins, degType)
 }
 \arguments{
-\item{G}{an igraph object}
+\item{G}{an igraph object.}
 
-\item{nbins}{the number of degree bins used in the degree augmentation}
+\item{nbins}{the number of degree bins.}
 
-\item{degType}{string; the type of degree to be used in the degree augmentation. See ?degree for details}
+\item{degType}{string; type of degree (see ?degree).}
 }
 \value{
-an igraph object containing an augmentation label corresponding to degree
+an igraph object with `augLabel` vertex attribute.
 }
 \description{
-This function is typically called by the grandpa function rather than directly.
-}
-\examples{
-
-G <- make_graph("Zachary")
-G <- addAugment(G,3,"all")
+Add degree augmentation label
 }

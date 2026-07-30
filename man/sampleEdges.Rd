@@ -7,29 +7,16 @@
 sampleEdges(observedEdgeLabels, mt, seed)
 }
 \arguments{
-\item{observedEdgeLabels}{a dataframe containing the observed edge label combinations and their probabilities from the original graph}
+\item{observedEdgeLabels}{data frame of edge label combinations and
+their probabilities.}
 
-\item{mt}{the number of desired edges in the generated graph}
+\item{mt}{number of desired edges.}
 
-\item{seed}{the random seed to be used for reproducibility}
+\item{seed}{random seed.}
 }
 \value{
-a dataframe containing edges and their nodel attributes on either end
+a data frame of sampled edges.
 }
 \description{
-This function is typically called by the grandpa function rather than directly.
-}
-\examples{
-
-G = make_graph("Zachary")
-V(G)$degree<-degree(G,mode="all")
-
-V(G)$Label1<-rep("A",vcount(G))
-V(G)$Label1[V(G)$degree>median(V(G)$degree)]<-"B"
-
-obsProbTabs<-calcObsProbs(G)
-vertexProbs<-obsProbTabs[[1]]
-edgeProbs<-obsProbTabs[[2]]
-
-sampledE<-sampleVertices(edgeProbs,75,0)
+Creates the edges that will be used in the generated graph
 }

@@ -4,19 +4,22 @@
 \alias{addCommunityAugment}
 \title{Add community augmentation label}
 \usage{
-addCommunityAugment(G)
+addCommunityAugment(G, resolution = 1, seed = NULL)
 }
 \arguments{
-\item{G}{an igraph object}
+\item{G}{an igraph object.}
+
+\item{resolution}{Louvain resolution parameter (default 1).}
+
+\item{seed}{random seed for reproducibility (default NULL = no seed).}
 }
 \value{
-an igraph object containing an augmentation label corresponding to community membership
+an igraph object with `CommunityLabel` vertex attribute.
 }
 \description{
-This function is typically called by the grandpa function rather than directly. By default, this function implements louvain clustering to detect community membership. Note, it is recommended to fit a community algorithm outside of the GRANDPA framework and add a vertext label called 'CommunityLabel' for best results.
-}
-\examples{
-
-G <- make_graph("Zachary")
-G <- addCommunityAugment(G)
+This function is typically called by the `grandpa` function rather than
+directly. By default it implements Louvain clustering to detect
+community membership. For best results we recommend fitting a community
+algorithm outside of GRANDPA and attaching the result as the
+`CommunityLabel` vertex attribute prior to calling `grandpa()`.
 }

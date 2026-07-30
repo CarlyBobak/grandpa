@@ -7,29 +7,16 @@
 sampleVertices(observedLabels, nt, seed)
 }
 \arguments{
-\item{observedLabels}{a dataframe containing the observed  label combinations and their probabilities from the original graph}
+\item{observedLabels}{a data frame containing observed label
+combinations and their probabilities from the original graph.}
 
-\item{nt}{the number of desired nodes in the generated graph}
+\item{nt}{the number of desired nodes in the generated graph.}
 
-\item{seed}{the random seed to be used for reproducibility}
+\item{seed}{the random seed used for reproducibility.}
 }
 \value{
-a dataframe containing node attributes
+a data frame containing node attributes.
 }
 \description{
-This function is typically called by the grandpa function rather than directly.
-}
-\examples{
-
-G = make_graph("Zachary")
-V(G)$degree<-degree(G,mode="all")
-
-V(G)$Label1<-rep("A",vcount(G))
-V(G)$Label1[V(G)$degree>median(V(G)$degree)]<-"B"
-
-obsProbTabs<-calcObsProbs(G)
-vertexProbs<-obsProbTabs[[1]]
-edgeProbs<-obsProbTabs[[2]]
-
-sampledV<-sampleVertices(vertexProbs,50,0)
+Creates the vertices that will be used in the generated graph
 }

@@ -2,31 +2,16 @@
 % Please edit documentation in R/grandpa.R
 \name{createMap}
 \alias{createMap}
-\title{Creates the map which lists vertix IDs based on attribute labels}
+\title{Creates the map of label combinations to vertex IDs}
 \usage{
 createMap(sampled_v)
 }
 \arguments{
-\item{sampled_v}{a dataframe containing the sampled vertices and their corresponding labels on each row}
+\item{sampled_v}{data frame of sampled vertices with an `ix` column.}
 }
 \value{
-a list which contains a mapping of all vertex IDs based on label combinations
+a list mapping label combinations to integer vertex IDs.
 }
 \description{
-This function is typically called by the grandpa function rather than directly.
-}
-\examples{
-
-G = make_graph("Zachary")
-V(G)$degree<-degree(G,mode="all")
-
-V(G)$Label1<-rep("A",vcount(G))
-V(G)$Label1[V(G)$degree>median(V(G)$degree)]<-"B"
-
-obsProbTabs<-calcObsProbs(G)
-vertexProbs<-obsProbTabs[[1]]
-edgeProbs<-obsProbTabs[[2]]
-
-sampledV<-sampleVertices(vertexProbs,50,0)
-map<-createMap(sampledV)
+Creates the map of label combinations to vertex IDs
 }

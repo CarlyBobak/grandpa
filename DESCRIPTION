@@ -1,17 +1,21 @@
 Package: grandpa
 Type: Package
 Title: GeneRAtive Networks using Property and Degree Augmentation
-Version: 0.1.0
-Author: Carly Bobak, Yifan Zhao
-Authors@R: c(person("Carly","Bobak",email="Carly.Anne.Bobak@dartmouth.edu",role = c("aut", "cre")),person("Yifan","Zhao",email="Yifan.Zhao.GR@dartmouth.edu",role="aut"))
-Description: This packages generates graphs from existing graphs using both observed attribute structure and topological augmentation
-License: MIT
+Version: 0.1.1
+Authors@R: c(
+    person("Carly", "Bobak", email = "Carly.Anne.Bobak@dartmouth.edu",
+           role = c("aut", "cre")),
+    person("Yifan", "Zhao", email = "Yifan.Zhao.GR@dartmouth.edu",
+           role = "aut"))
+Description: GRANDPA generates synthetic networks from an observed graph using both the observed vertex-attribute structure and topological augmentation based on degree and community membership. It preserves attribute frequencies and degree characteristics of the source network while producing graphs of a user-specified size.
+License: MIT + file LICENSE
 Depends: R (>= 3.5.0)
 Encoding: UTF-8
 LazyData: true
 Imports:
-  igraph, 
-  tidyr,
-  dplyr (>= 1.0.0),
-  ggplot2
-RoxygenNote: 7.2.3
+    igraph,
+    tidyr,
+    dplyr (>= 1.0.0),
+    ggplot2,
+    stats
+RoxygenNote: 7.3.3

@@ -7,19 +7,19 @@
 preventSelfConnections(v1, v2, lab1, lab2, C2V)
 }
 \arguments{
-\item{v1}{a vertex id}
+\item{v1}{a vertex id.}
 
-\item{v2}{a second vertex id}
+\item{v2}{a second vertex id.}
 
-\item{lab1}{the label corresponding to vertex id 1}
+\item{lab1}{the label corresponding to vertex id 1.}
 
-\item{lab2}{the label corresponding to vertex id 2}
+\item{lab2}{the label corresponding to vertex id 2.}
 
-\item{C2V}{a mapping of label categories to vertex IDs}
+\item{C2V}{mapping of label categories to vertex IDs.}
 }
 \value{
-updated vertex IDs
+updated vertex IDs.
 }
 \description{
-This function is typically called by the grandpa function and should not be used directly.
+Prevents self connections during graph generation
 }

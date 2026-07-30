@@ -2,35 +2,20 @@
 % Please edit documentation in R/grandpa.R
 \name{initializeTargetG}
 \alias{initializeTargetG}
-\title{Intializes an empty graph with the generated vertices}
+\title{Initializes an empty graph with the generated vertices}
 \usage{
 initializeTargetG(sampled_v, nt, d)
 }
 \arguments{
-\item{sampled_v}{a dataframe containing the sampled vertices and their corresponding labels on each row}
+\item{sampled_v}{data frame of sampled vertices and their labels.}
 
-\item{nt}{the number of desired nodes in the generated graph}
+\item{nt}{number of desired nodes.}
 
 \item{d}{logical; is the graph directed?}
 }
 \value{
-an empty igraph object with the desired vertices
+an empty igraph object with the desired vertices.
 }
 \description{
-This function is typically called by the grandpa function rather than directly.
-}
-\examples{
-
-G = make_graph("Zachary")
-V(G)$degree<-degree(G,mode="all")
-
-V(G)$Label1<-rep("A",vcount(G))
-V(G)$Label1[V(G)$degree>median(V(G)$degree)]<-"B"
-
-obsProbTabs<-calcObsProbs(G)
-vertexProbs<-obsProbTabs[[1]]
-edgeProbs<-obsProbTabs[[2]]
-
-sampledV<-sampleVertices(vertexProbs,50,0)
-initG<-initializeTargetG(sampledV,50,FALSE)
+Initializes an empty graph with the generated vertices
 }

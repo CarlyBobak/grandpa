@@ -7,40 +7,21 @@
 simGraph(Gt, sampled_e, C2V, seed, preventSelf, preventDups)
 }
 \arguments{
-\item{Gt}{The empty graph}
+\item{Gt}{the empty graph.}
 
-\item{sampled_e}{a dataframe containing the edges for the generated graph and their node attributes}
+\item{sampled_e}{data frame of sampled edges with label columns.}
 
-\item{C2V}{a mapping of the nodal attribute combinations and vertex IDs}
+\item{C2V}{mapping of label combinations to vertex IDs.}
 
-\item{seed}{the random seed to be used for reproducibility}
+\item{seed}{random seed.}
 
-\item{preventSelf}{logical; should self connections be prevented?}
+\item{preventSelf}{logical; prevent self connections?}
 
-\item{preventDups}{logical; should duplicate connections be prevented}
+\item{preventDups}{logical; prevent duplicate connections?}
 }
 \value{
-a generated igraph object
+a generated igraph object.
 }
 \description{
-This function is typically called by the grandpa function rather than directly.
-}
-\examples{
-
-G = make_graph("Zachary")
-V(G)$degree<-degree(G,mode="all")
-
-V(G)$Label1<-rep("A",vcount(G))
-V(G)$Label1[V(G)$degree>median(V(G)$degree)]<-"B"
-
-obsProbTabs<-calcObsProbs(G)
-vertexProbs<-obsProbTabs[[1]]
-edgeProbs<-obsProbTabs[[2]]
-
-sampledV<-sampleVertices(vertexProbs,50,0)
-initG<-initializeTargetG(sampledV,50,FALSE)
-map<-createMap(sampledV)
-sampledE<-sampleVertices(edgeProbs,75,0)
-
-GSim<-simGraph(initG,sampledE,map,0,T,T)
+Procedure to add edges to the generated graph
 }

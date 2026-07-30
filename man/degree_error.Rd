@@ -2,18 +2,18 @@
 % Please edit documentation in R/grandpa.R
 \name{degree_error}
 \alias{degree_error}
-\title{Calculates the error between two degree distributions of graphs}
+\title{Calculates the NRMSE between the degree distributions of two graphs}
 \usage{
 degree_error(G, Gt)
 }
 \arguments{
-\item{G}{the original graph}
+\item{G}{the original graph.}
 
-\item{Gt}{the generated graph}
+\item{Gt}{the generated graph.}
 }
 \value{
-numerical; the NRMSE between the degree distributions
+numeric; the NRMSE between the degree distributions.
 }
 \description{
-This function takes an original graph and a simulated graph and calculates the normalized root mean square error between their degree distributions.
+Calculates the NRMSE between the degree distributions of two graphs
 }
